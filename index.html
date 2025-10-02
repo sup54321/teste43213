@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventure Group</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif; }
+html { scroll-behavior:smooth; }
+
+/* Header */
+header {
+  position: fixed; 
+  top:0; left:0; right:0; 
+  z-index:1000;
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  padding:0 30px; 
+  background: transparent; 
+  color:white;
+  height:120px;
+}
+header > * { position:relative; z-index:1; }
+
+.logo { 
+  height:180px; 
+  width:auto; 
+  margin-right:auto;
+}
+
+.burger { 
+  display:flex; 
+  flex-direction:column; 
+  cursor:pointer; 
+  gap:5px; 
+  margin-left:auto; 
+  z-index:2; 
+}
+.burger div { 
+  width:25px; 
+  height:3px; 
+  background:white; 
+  border-radius:2px; 
+  transition:0.3s; 
+}
+
+/* Nav - Transparent Dropdown */
+nav ul {
+  list-style:none; 
+  position:absolute; 
+  top:120px; 
+  right:30px; 
+  background: rgba(52, 73, 94, 0.8); 
+  flex-direction:column; 
+  width:260px; 
+  display:none;
+  padding:15px; 
+  border-radius:5px;
+  max-height: 70vh; 
+  overflow-y:auto;
+}
+nav ul.show { display:flex; }
+nav ul li { margin:5px 0; }
+nav ul li a { 
+  color:white; 
+  text-decoration:none; 
+  padding:10px; 
+  display:block; 
+  border-radius:4px; 
+}
+nav ul li a:hover { 
+  background: rgba(74, 91, 114, 0.9); 
+}
+
+/* Hero */
+.hero {
+  height:100vh; 
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+              url("bg-01.jpg") no-repeat center/cover;
+}
+
+/* Footer */
+footer {
+  text-align:center;
+  padding:20px;
+  background:#222;
+  color:#ccc;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="Inventure Group Logo" class="logo">
+  
+  <div class="burger" id="burger">
+    <div></div><div></div><div></div>
+  </div>
+  
+  <nav>
+    <ul id="nav-links">
+      <li><a href="overview.html">Overview & History</a></li>
+      <li><a href="footprint.html">Global Footprint</a></li>
+      <li><a href="mission.html">Mission</a></li>
+      <li><a href="ourgroup.html">Our Group</a></li>
+      <li><a href="investment.html">Investment Verticals</a></li>
+      <li><a href="partnerships.html">Strategic Partnerships</a></li>
+      <li><a href="interports.html">Inventure Interports</a></li>
+      <li><a href="hospitality.html">Hospitality & F&B</a></li>
+      <li><a href="cities.html">Inventure Group’s Cities</a></li>
+      <li><a href="flagship.html">Flagship Projects</a></li>
+      <li><a href="nwg.html">NWG Gargoub</a></li>
+      <li><a href="countries.html">Countries</a></li>
+      <li><a href="leadership.html">Leadership</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="awards.html">Inventure International Awards</a></li>
+      <li><a href="healthcare.html">Healthcare & Insurance</a></li>
+      <li><a href="healthcare-companies.html">Our Group Healthcare Companies</a></li>
+      <li><a href="gargoub.html">Gargoub SEZ & GBFC</a></li>
+      <li><a href="education.html">Education & Academies</a></li>
+      <li><a href="media.html">Media & Digital Innovation</a></li>
+      <li><a href="fashion.html">Fashion & Retail</a></li>
+      <li><a href="ic.html">Inventure Capital (IC)</a></li>
+      <li><a href="ic-awards.html">Inventure Capital – International Awards</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="home" class="hero"></section>
+
+<footer>&copy; 2025 Inventure Group. All rights reserved.</footer>
+
+<script>
+const burger = document.getElementById("burger");
+const navLinks = document.getElementById("nav-links");
+
+burger.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+  burger.classList.toggle("open");
+});
+
+// Burger animation
+const style = document.createElement("style");
+style.textContent = `
+.burger.open div:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.burger.open div:nth-child(2) { opacity: 0; }
+.burger.open div:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+`;
+document.head.appendChild(style);
+</script>
+
+</body>
+</html>
